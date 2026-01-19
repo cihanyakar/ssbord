@@ -1,0 +1,275 @@
+/* Corporate Light Theme for Handsontable */
+:root {
+  --ht-bg-primary: #ffffff;
+  --ht-bg-surface: #f8fafc;
+  --ht-bg-elevated: #f1f5f9;
+  --ht-border: rgba(100, 116, 139, 0.12);
+  --ht-border-strong: rgba(100, 116, 139, 0.2);
+  --ht-text-primary: #1e293b;
+  --ht-text-secondary: #64748b;
+  --ht-text-muted: #94a3b8;
+  --ht-accent: #1e40af;
+  --ht-accent-light: #3b82f6;
+  --ht-success: #059669;
+  --ht-error: #dc2626;
+  --ht-warning: #d97706;
+}
+
+.handsontable {
+  font-family: 'JetBrains Mono NF', 'SF Mono', 'Consolas', monospace;
+  font-size: 12px;
+  color: var(--ht-text-primary);
+  background: var(--ht-bg-primary);
+}
+
+/* Ensure consistent box model for all cells */
+.handsontable th,
+.handsontable td {
+  box-sizing: border-box !important;
+}
+
+/* Table wrapper */
+.handsontable .wtHolder {
+  background: var(--ht-bg-primary);
+}
+
+/* All header cells (thead) - same height for alignment */
+.handsontable thead th {
+  background: var(--ht-bg-surface) !important;
+  color: var(--ht-text-secondary) !important;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center !important;
+  border-color: var(--ht-border) !important;
+  border-bottom: 1px solid var(--ht-border-strong) !important;
+  padding: 8px 10px !important;
+}
+
+/* Row headers - must match td height exactly (only tbody, not thead corner) */
+.handsontable tbody th,
+.handsontable .ht_clone_left tbody th {
+  background: var(--ht-bg-surface) !important;
+  color: var(--ht-text-secondary) !important;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center !important;
+  border-color: var(--ht-border) !important;
+  padding: 8px 10px !important;
+  line-height: 1.4;
+  vertical-align: middle;
+}
+
+/* Row headers highlight */
+.handsontable th.ht__highlight,
+.handsontable th.ht__active_highlight {
+  background: var(--ht-bg-elevated) !important;
+  color: var(--ht-text-primary) !important;
+}
+
+/* Cell styling */
+.handsontable td {
+  background: var(--ht-bg-primary);
+  color: var(--ht-text-primary);
+  border-color: var(--ht-border) !important;
+  vertical-align: middle;
+  padding: 8px 10px !important;
+  line-height: 1.4;
+  transition: background-color 0.1s ease;
+}
+
+/* Alternating rows - subtle */
+.handsontable tbody tr:nth-child(even) td {
+  background: var(--ht-bg-surface);
+}
+
+/* Hover state */
+.handsontable tbody tr:hover td {
+  background: rgba(30, 64, 175, 0.04) !important;
+}
+
+/* Selected cells */
+.handsontable td.area {
+  background: rgba(30, 64, 175, 0.08) !important;
+}
+
+.handsontable td.current {
+  background: rgba(30, 64, 175, 0.12) !important;
+}
+
+/* Highlight border for current selection */
+.handsontable .wtBorder {
+  background-color: var(--ht-accent) !important;
+}
+
+.handsontable .wtBorder.current {
+  background-color: var(--ht-accent) !important;
+}
+
+/* Editable cell - Net Salary column */
+.editable-cell {
+  background: rgba(5, 150, 105, 0.06) !important;
+  border-left: 2px solid var(--ht-success) !important;
+}
+
+.editable-cell:focus,
+.editable-cell.current {
+  background: rgba(5, 150, 105, 0.12) !important;
+}
+
+/* Total cost column */
+.total-cost-cell {
+  background: rgba(30, 64, 175, 0.06) !important;
+  color: var(--ht-accent) !important;
+  font-weight: 600;
+}
+
+/* Deduction cells - Red tint */
+.deduction-cell {
+  color: var(--ht-error) !important;
+}
+
+/* Employer cost cells - Orange tint */
+.employer-cell {
+  color: var(--ht-warning) !important;
+}
+
+/* Incentive cells - Green tint (positive/savings) */
+.incentive-cell {
+  color: var(--ht-success) !important;
+}
+
+/* Numeric cells alignment */
+.handsontable td.htNumeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* First column (name) - slightly emphasized */
+.handsontable td:first-child {
+  font-weight: 500;
+  color: var(--ht-text-primary);
+}
+
+/* Totals row - Corporate accent */
+.totals-row-cell {
+  background: linear-gradient(180deg, var(--ht-bg-elevated) 0%, var(--ht-bg-surface) 100%) !important;
+  color: var(--ht-text-primary) !important;
+  font-weight: 600 !important;
+  border-top: 1px solid var(--ht-accent) !important;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+}
+
+.totals-row-total {
+  background: linear-gradient(180deg, rgba(30, 64, 175, 0.12) 0%, rgba(30, 64, 175, 0.06) 100%) !important;
+  color: var(--ht-accent) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+}
+
+/* Context menu */
+.htContextMenu {
+  font-family: 'JetBrains Mono NF', monospace;
+  background: var(--ht-bg-primary) !important;
+  border: 1px solid var(--ht-border-strong) !important;
+  border-radius: 6px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.htContextMenu td {
+  background: var(--ht-bg-primary) !important;
+  color: var(--ht-text-primary) !important;
+  border: none !important;
+}
+
+.htContextMenu td:hover {
+  background: rgba(30, 64, 175, 0.08) !important;
+}
+
+.htContextMenu td.htDisabled {
+  color: var(--ht-text-muted) !important;
+}
+
+/* Scrollbar styling */
+.handsontable ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.handsontable ::-webkit-scrollbar-track {
+  background: var(--ht-bg-surface);
+}
+
+.handsontable ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.handsontable ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Input editor styling */
+.handsontable .handsontableInput {
+  background: var(--ht-bg-primary) !important;
+  color: var(--ht-text-primary) !important;
+  border: 1px solid var(--ht-accent) !important;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono NF', monospace;
+  font-size: 12px;
+  padding: 4px 8px;
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+/* Column resize handle */
+.handsontable .manualColumnResizer {
+  background: var(--ht-accent);
+}
+
+.handsontable .manualRowResizer {
+  background: var(--ht-accent);
+}
+
+/* Comments indicator */
+.handsontable td.htCommentCell::after {
+  border-top-color: var(--ht-accent);
+}
+
+/* Invalid cells */
+.handsontable td.htInvalid {
+  background: rgba(220, 38, 38, 0.08) !important;
+}
+
+/* Placeholder text */
+.handsontable .htPlaceholder {
+  color: var(--ht-text-muted);
+}
+
+/* Autocomplete dropdown */
+.handsontable .htAutocomplete {
+  background: var(--ht-bg-primary);
+  border: 1px solid var(--ht-border-strong);
+  border-radius: 6px;
+}
+
+/* Cell borders on hover enhancement */
+.handsontable tbody tr:hover td {
+  border-color: var(--ht-border-strong) !important;
+}
+
+/* Column groups visual separation */
+.handsontable td:nth-child(4) {
+  border-left: 1px solid var(--ht-border-strong) !important;
+}
+
+.handsontable td:nth-child(10) {
+  border-left: 1px solid var(--ht-border-strong) !important;
+}
+
+.handsontable td:nth-child(13) {
+  border-left: 1px solid var(--ht-border-strong) !important;
+}
